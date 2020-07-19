@@ -34,7 +34,7 @@ InstructionFactory::InstructionFactory(const StackAssemblyMachinePtr& iMachinePt
     _factory[StackAssemblyKeyword::Push] = [&iMachinePtr] (uint32_t iOffset, std::optional<int32_t> iArg){ return std::make_shared<PushInstruction>(PushInstruction(iOffset, iMachinePtr, iArg.value())); };
     _factory[StackAssemblyKeyword::Pop] = [&iMachinePtr] (uint32_t iOffset, std::optional<int32_t> iArg){ return std::make_shared<PopInstruction>(PopInstruction(iOffset, iMachinePtr, iArg.value())); };
     _factory[StackAssemblyKeyword::Rot] = [&iMachinePtr] (uint32_t iOffset, std::optional<int32_t> iArg){ return std::make_shared<RotationInstruction>(RotationInstruction(iOffset, iMachinePtr, iArg.value())); };
-    _factory[StackAssemblyKeyword::Unknown] = [&iMachinePtr] (uint32_t, std::optional<int32_t>){ return nullptr; };
+    _factory[StackAssemblyKeyword::Unknown] = [] (uint32_t, std::optional<int32_t>){ return nullptr; };
 }
 
 /**
