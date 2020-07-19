@@ -52,7 +52,7 @@ Each instruction has an index in the code, starting from 0, and an optional inte
 ### PUSH < n >:
     Push the integer value <n> on the stack.
 
-### POP <n>
+### POP < n >
     Pop <n> value(s) from the stack.
 
 ### ROT < n >
