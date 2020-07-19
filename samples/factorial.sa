@@ -1,0 +1,26 @@
+0 PUSH -1  // Will be the "stop" condition
+1 READ     // Read value from stdin
+2 DUP      // From this point, the purpose is to generate BOTTOM [-1, 5, 4, 3, 2, 1] TOP
+3 PUSH 1
+4 ROT 2
+5 SUB
+6 DUP
+7 PUSH 1
+8 LT
+9 PUSH 2
+10 JUMPZ   // We iterate as long as the top value is not 1
+11 MUL     // We multiply all values from the stack to compute the factorial
+12 DUP
+13 PUSH 0
+14 LT
+15 PUSH 11
+16 JUMPZ   // At some point, we will have BOTTOM [-1, 120] TOP. When we only have -120 as top value, we stop multiplying below 0.
+17 PUSH -1
+18 MUL     // We multiply by -1 to have the correct positive value (120)
+19 DUP
+20 PUSH 0  // Handle 0! and 1! cases.
+21 LT
+22 PUSH 25
+23 JUMPZ
+24 PUSH 1
+25 WRITE   // Display the result

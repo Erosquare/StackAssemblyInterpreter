@@ -1,0 +1,9 @@
+0 READ // Read input from user
+1 PUSH 2
+2 ROT 2 // Swap the two values for comparison
+
+3 MOD
+4 PUSH 0
+5 EQ
+
+6 WRITE // Will display '0' if the entered number in even, '1' if it is odd
