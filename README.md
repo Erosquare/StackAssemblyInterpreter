@@ -136,4 +136,5 @@ A list of samples is also available in the "**samples**" folder of the project:
  - **square**: Reads a positive value from stdin and display its square value as a result.
  - **factorial**: Reads a value from stdin and display the factorial value.
  - **oddeven**: Takes a number as input and display '0' if the number is even, '1' otherwise.
+ - **leapyear**: Reads a year as input and display '0' if it is a leap year, '1' otherwise.
 

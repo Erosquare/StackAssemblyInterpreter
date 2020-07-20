@@ -1,0 +1,34 @@
+0 PUSH 100   // Leap year algorithm:  (year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0)
+1 READ
+2 DUP
+3 PUSH 4
+4 ROT 2      // At this point, the stack should be something like BOTTOM [100, 2020, 4, 2020] TOP
+5 MOD
+6 PUSH 0
+7 LT         // Here we check (year % 4 == 0) condition
+8 PUSH 17
+9 JUMPZ      // Condition not met, jump to fallback case
+
+10 DUP       // Second condition: (year % 100 != 0)
+11 ROT 3     // At this point, the stack should be something like BOTTOM [2020, 100, 2020] TOP
+12 MOD
+13 PUSH 0
+14 LT        // Here we check (year % 100 != 0) condition
+15 PUSH 28
+16 JUMPZ     // Condition met, jump to True
+
+17 PUSH 400  // Fallback case: (year % 400 == 0)
+18 ROT 2
+19 MOD
+20 PUSH 0
+21 EQ
+22 PUSH 28   // Here we check (year % 400 == 0) condition
+23 JUMPZ     // Condition met, jump to True
+
+24 PUSH 1    // All conditions not met, Push 1 (False) on the stack
+25 PUSH 0
+26 PUSH 29
+27 JUMPZ     // Jump to display the value
+
+28 PUSH 0    // True, push 0 on the stack
+29 WRITE     // Display the result
